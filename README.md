@@ -197,6 +197,8 @@ client = CrossrefDeposit::Client.new(
 receipt = client.submit(deposit.to_xml, file_name: "example-20260307-0001.xml")
 receipt.queued? # true if CrossRef accepted the submission
 receipt.rejected? # true if CrossRef rejected the submission
+receipt.rate_limited? # true if the submission is rate-limited
+receipt.failure_reason # nil when queued, else :rate_limited / :server_error / :client_error
 ```
 
 ### Polling for result
