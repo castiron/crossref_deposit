@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch_diagnostic status="completed" sp="a-cs1">
+  <submission_id>1234567891</submission_id>
+  <batch_id>example-20260307-0002</batch_id>
+  <record_diagnostic status="Failure">
+    <doi>10.1525/example.2</doi>
+    <msg>Record not processed because submission version is less than the currently stored version</msg>
+  </record_diagnostic>
+  <batch_data>
+    <record_count>1</record_count>
+    <success_count>0</success_count>
+    <warning_count>0</warning_count>
+    <failure_count>1</failure_count>
+  </batch_data>
+</doi_batch_diagnostic>

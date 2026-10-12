@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch_diagnostic status="completed" sp="a-cs1">
+  <submission_id>1234567890</submission_id>
+  <batch_id>example-20260307-0001</batch_id>
+  <record_diagnostic status="Success">
+    <doi>10.1525/example.1</doi>
+    <msg>Successfully added</msg>
+  </record_diagnostic>
+  <batch_data>
+    <record_count>1</record_count>
+    <success_count>1</success_count>
+    <warning_count>0</warning_count>
+    <failure_count>0</failure_count>
+  </batch_data>
+</doi_batch_diagnostic>
