@@ -74,18 +74,18 @@ class AbstractModel < Data
 
     def build_validator_proc(thing)
       @proc, @prebuilt_options = case thing
-                                 when Proc
-                                   [thing, {}]
-                                 when Symbol
+      when Proc
+                                   [ thing, {} ]
+      when Symbol
                                    lookup_prebuilt(thing)
-                                 end
+      end
     end
 
     def lookup_prebuilt(name)
       prebuilt = PREBUILT_VALIDATORS[name.to_sym]
       raise(ArgumentError, "prebuilt validator #{name} not found") unless prebuilt
 
-      prebuilt.is_a?(Array) ? prebuilt : [prebuilt, {}]
+      prebuilt.is_a?(Array) ? prebuilt : [ prebuilt, {} ]
     end
 
     def skip?(instance)
