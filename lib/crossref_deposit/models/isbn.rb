@@ -10,6 +10,6 @@ module CrossrefDeposit
     defaults media_type: nil
 
     validate :value, validator: :required
-    validate :media_type, validator: ->(val) { "must be one of #{MEDIA_TYPES.join(", ")}" unless MEDIA_TYPES.include? val }
+    validate :media_type, validator: :included, set: MEDIA_TYPES
   end
 end

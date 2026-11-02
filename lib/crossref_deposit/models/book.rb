@@ -22,14 +22,7 @@ module CrossrefDeposit
 
     validate :doi, :resource_url, :title, :publisher, :publication_dates, validator: :required
     validate :edition_number, validator: :numeric
-    validate :book_type, validator: ->(val) { "must be one of #{BOOK_TYPES.join(", ")}" unless BOOK_TYPES.include?(val) }
-    validate :isbn, validator: :validate_isbn
-
-    def validate_isbn
-      return if isbns.any?
-      return if NOISBN_REASONS.include?(noisbn_reason)
-
-      "without an isbn, noisbn_reason must be one of #{NOISBN_REASONS.join(", ")}"
-    end
+    validate :book_type, validator: :included, set: BOOK_TYPES
+    validate :noisbn_reason, validator: :included, set: NOISBN_REASONS, if: -> { isbns.none? }
   end
 end

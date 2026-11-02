@@ -14,7 +14,7 @@ module CrossrefDeposit
     defaults given_name: nil, sequence: :first, contributor_role: :author
 
     validate :surname, validator: :required
-    validate :sequence, validator: ->(val) { "must be one of #{SEQUENCES.join(", ")}" unless SEQUENCES.include?(val) }
-    validate :contributor_role, validator: ->(val) { "must be one of #{ROLES.join(", ")}" unless ROLES.include?(val) }
+    validate :sequence, validator: :included, set: SEQUENCES
+    validate :contributor_role, validator: :included, set: ROLES
   end
 end

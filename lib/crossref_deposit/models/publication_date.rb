@@ -11,8 +11,8 @@ module CrossrefDeposit
 
     validate :year, validator: :required
     validate :year, validator: :numeric
-    validate :month, validator: ->(val) { "must be between 1 and 12" unless val.nil? || (1..12).include?(val) }
-    validate :day, validator: ->(val) { "must be between 1 and 31" unless val.nil? || (1..31).include?(val) }
-    validate :media_type, validator: ->(val) { "must be one of #{MEDIA_TYPES.join(", ")}" unless MEDIA_TYPES.include?(val) }
+    validate :month, validator: :included, set: (1..12).to_a
+    validate :day, validator: :included, set: (1..31).to_a
+    validate :media_type, validator: :included, set: MEDIA_TYPES
   end
 end
